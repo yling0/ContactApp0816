@@ -19,7 +19,6 @@ public class Contact {
     private long id;
 
     @NotEmpty
-    @Size(min = 2)
     private String fname;
 
     @NotNull

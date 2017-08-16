@@ -1,22 +1,114 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>Add Contact</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Theme CSS -->
+    <link href="css/agency.min.css" rel="stylesheet">
 </head>
+
 <body>
-<form action="#" th:action="@{/process}" th:object="${contact}" method="post">
-    <input type="hidden" th:field="*{id}" />
-    First Name :<input type="text" th:field="*{fname}" />
-    <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></span><br />
-    Last Name :<input type="text" th:field="*{lname}" />
-    <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></span><br />
-    Email :<input type="email" th:field="*{email}" />
-    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br />
-    Phone Number :<input type="text" th:field="*{phone}" />
-    <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br />
-    <input type="submit" value="Submit" />
-</form>
+
+<section class = "contact123" id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Address Book</h2>
+                <h3 class="section-subheading text-muted">Add contact here.</h3>
+                <div class="container">
+                    <form class="well form-horizontal" action="#" th:action="@{/process}" th:object="${contact}" method="post">
+                        <fieldset>
+
+                            <!-- Form Name -->
+                            <legend>Contact List</legend>
+
+                            <input type="hidden" th:field="*{id}" />
+
+                            <!-- Text input-->
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">First Name</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input th:field="*{fname}" name="first_name" placeholder="First Name" class="form-control"  type="text">
+                                        <span th:if="${#fields.hasErrors('fname')}" th:errors="*{fname}"></span><br />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" >Last Name</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                        <input th:field="*{lname}" name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                        <span th:if="${#fields.hasErrors('lname')}" th:errors="*{lname}"></span><br />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Text input-->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">E-Mail</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                        <input th:field="*{email}" placeholder="E-Mail Address" class="form-control"  type="email">
+                                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span><br />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Text input-->
+
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Phone #</label>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                                        <input th:field="*{phone}" placeholder="(845)555-1212" class="form-control" type="text">
+                                        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></span><br />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Success message -->
+                            <!--<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for contacting us, we will get back to you shortly.</div>-->
+
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="col-md-4 control-label"></label>
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-warning" >Submit <span class="glyphicon glyphicon-send"></span></button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div><!-- /.container -->
+        </div>
+
+
+    </div>
+</section>
+
 
 </body>
+
 </html>
